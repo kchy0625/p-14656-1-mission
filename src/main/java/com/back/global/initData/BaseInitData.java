@@ -21,6 +21,7 @@ public class BaseInitData {
             work3();
         };
     }
+
     private void work1(){
         log.debug("Post entity 개수: {}",postService.count());
         log.debug("샘플 Post 데이터 생성");
@@ -45,7 +46,8 @@ public class BaseInitData {
     private void work3(){
         log.debug("Post 단건 조회");
         for (Post post : postService.findAll()) {
-            log.debug("조회된 Post: {}", post);
+            Post fetchedPost = postService.findById(post.getId());
+            log.debug("조회된 Post: {}", fetchedPost);
         }
     }
 }
